@@ -1,12 +1,13 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from ..models.response import NewResponse
 
 
 # services
 @api_view(['GET'])
 def API(request):
-    data = {
-        'status': 200,
-        'message': "here goes all endpoints"
-    }
-    return Response(data)
+    return Response(NewResponse(
+        statusOk=True,
+        message="Here goes all api endpoints!",
+        data=None
+    ).parse())

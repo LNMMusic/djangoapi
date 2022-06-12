@@ -1,0 +1,44 @@
+#__________________________________________
+### ROOT
+GET http://localhost:8000/api HTTP/1.1
+
+
+#__________________________________________
+### API
+GET http://localhost:8000/api/routes HTTP/1.1
+
+
+#__________________________________________
+### MODELS [user]
+# read
+GET http://localhost:8000/api/user/get HTTP/1.1
+
+###
+GET http://localhost:8000/api/user/get/1 HTTP/1.1
+
+
+# write
+###
+POST http://localhost:8000/api/user/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "LNM",
+    "password": "password",
+    "fullname": "LNM",
+    "email":    "lnm@gmail.com"
+}
+
+###
+PUT http://localhost:8000/api/user/update/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "LNMUpdated",
+    "password": "passwordUpdated",
+    "fullname": "LNMUpdated",
+    "email":    "lnmupdated@gmail.com"
+}
+
+###
+DELETE http://localhost:8000/api/user/delete/1 HTTP/1.1

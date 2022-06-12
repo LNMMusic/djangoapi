@@ -14,14 +14,14 @@ def get(request):
 
     # process
     users = user.User.objects.all()
-    users_response = user.UserSerializer(users)
+    users_response = user.UserSerializer(users, many=True)
 
     # response
     return Response(NewResponse(
         statusOk=True,
         message="Succeed to get all users!",
-        data=users_response
-    ))
+        data=users_response.data
+    ).parse())
 
 @api_view(["GET"])
 def get_id(request, id): #parsed from url
@@ -30,14 +30,14 @@ def get_id(request, id): #parsed from url
 
     # process
     users = user.User.objects.get(id=id)
-    users_response = user.UserSerializer(users)
+    users_response = user.UserSerializer(users, many=False)
 
     # response
     return Response(NewResponse(
         statusOk=True,
         message="Succeed to get user!",
-        data=users_response
-    ))
+        data=users_response.data
+    ).parse())
 
 
 # WRITE
@@ -55,7 +55,7 @@ def create(request):
         statusOk=True,
         message="Succeed to create user!",
         data=req.data
-    ))
+    ).parse())
 
 @api_view(["PUT"])
 def update(request, id):
@@ -74,7 +74,7 @@ def update(request, id):
         statusOk=True,
         message="Succeed to update user!",
         data=req.data
-    ))
+    ).parse())
 
 @api_view(["DELETE"])
 def delete(request, id):
@@ -89,5 +89,5 @@ def delete(request, id):
     return Response(NewResponse(
         statusOk=True,
         message="Succeed to delete user!",
-        data=none
-    ))
+        data=None
+    ).parse())
