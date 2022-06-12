@@ -1,4 +1,6 @@
 from django.db import models
+from rest_framework import serializers
+
 import uuid
 
 # const
@@ -11,8 +13,8 @@ class User(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     username = models.CharField(max_length=50, **EMPTY)
     password = models.CharField(max_length=100, **EMPTY)
-    fullname = models.CharField(max_length=50,)
-    email    = models.EmailField()
+    fullname = models.CharField(max_length=50, **EMPTY)
+    email    = models.EmailField(max_length=50, **EMPTY)
     
     # methods
     def __str__(self):
@@ -21,4 +23,8 @@ class User(models.Model):
 
 
 # Schemas [serializer] [endpoints]
-# ...
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        # fields= '__all__'
+        fields = ['username', 'password', 'fullname', 'email']
