@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # packages
     'rest_framework',
+    'drf_yasg'#, 'django.contrib.staticfiles',
 ]
 
 REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
