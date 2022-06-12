@@ -23,7 +23,7 @@ class User(models.Model):
 
 
 # Schemas [serializer] [endpoints]
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         # fields= '__all__'
