@@ -1,3 +1,10 @@
 from django.contrib import admin
+# models
+from . import models
 
-# Register your models here.
+
+
+# ADMIN Panel
+admin.site.register(models.user.User)
+admin.site.register(models.item.Item)
+admin.site.register(models.category.Category)

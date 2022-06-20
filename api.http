@@ -3,9 +3,13 @@
 GET http://localhost:8000/api HTTP/1.1
 
 
+
+
 #__________________________________________
 ### API
 GET http://localhost:8000/api/routes HTTP/1.1
+
+
 
 
 #__________________________________________
@@ -42,3 +46,73 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:8000/api/user/delete/1 HTTP/1.1
+
+
+
+
+#__________________________________________
+### MODELS [item]
+# read
+GET http://localhost:8000/api/item/get HTTP/1.1
+
+###
+GET http://localhost:8000/api/item/get/1 HTTP/1.1
+
+
+# write
+###
+POST http://localhost:8000/api/item/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Car",
+    "active": true,
+    "user": "user_uuid..."
+}
+
+###
+PUT http://localhost:8000/api/item/update/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "CarUpdated",
+    "active": false,
+    "user": "user_uuid..."
+}
+
+###
+DELETE http://localhost:8000/api/item/delete/1 HTTP/1.1
+
+
+
+
+#__________________________________________
+### MODELS [category]
+# read
+GET http://localhost:8000/api/category/get HTTP/1.1
+
+###
+GET http://localhost:8000/api/category/get/1 HTTP/1.1
+
+
+# write
+###
+POST http://localhost:8000/api/category/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Ambience",
+    "color": "Black"
+}
+
+###
+PUT http://localhost:8000/api/category/update/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Nature",
+    "color": "White"
+}
+
+###
+DELETE http://localhost:8000/api/category/delete/1 HTTP/1.1

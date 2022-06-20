@@ -1,10 +1,9 @@
 from django.db import models
 from rest_framework import serializers
-
 import uuid
-
 # const
 EMPTY = {'null': True, 'blank': True}
+
 
 
 # Model [DB Driver]
@@ -26,5 +25,4 @@ class User(models.Model):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        # fields= '__all__'
-        fields = ['username', 'password', 'fullname', 'email']
+        fields = ['username', 'password', 'fullname', 'email'] # fields= '__all__'
