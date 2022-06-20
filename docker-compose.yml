@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    container_name: db_mysql
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DBSQL_PSWD}
+      - MYSQL_DATABASE=${DBSQL_NAME}
+    healthcheck:
+      test: "exit 0"
+    volumes:
+      - volume_mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  
+  backend:
+    container_name: backend_python
+    image: backend_python:fastapi
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    command: [ "python", "manage.py", "runserver" ]
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+volumes:
+  volume_mysql

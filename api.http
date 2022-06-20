@@ -102,7 +102,7 @@ Content-Type: application/json
 
 {
     "name": "Horror",
-    "color": "Gray"
+    "color": "Grey"
 }
 
 ###
@@ -115,4 +115,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8000/api/category/delete/1 HTTP/1.1
+DELETE http://localhost:8000/api/category/delete/9197f1f27bf64b9a95611daa2cc74b57 HTTP/1.1

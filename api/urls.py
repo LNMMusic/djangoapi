@@ -30,5 +30,4 @@ urlpatterns = [
     path('category/create', services.category.create, name="category_create"),
     path('category/update/<str:id>', services.category.update, name="category_update"),
     path('category/delete/<str:id>', services.category.delete, name="category_delete"),
-
 ]
