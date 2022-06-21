@@ -10,7 +10,7 @@
 - backend service run a 'wait.sh' file to sync the db with the api. It waits until mysql is ready to then run backend server to be able to connect to db
 
 <br />
----
+<hr />
 <br />
 
 ### Steps
@@ -30,7 +30,6 @@ docker exec -it [container] /bin/sh
 From here the backend service will be able to execute endpoints
 All the migrations to the DB are gonna be consistency based on DB ***volume***
 
-<br />
 <br />
 
 **POST Run**
