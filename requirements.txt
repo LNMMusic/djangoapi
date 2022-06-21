@@ -1,5 +1,6 @@
 Django==4.0.5
 mysqlclient==2.1.0
+django-mysql
 djangorestframework==3.13.1
 # swagger
 drf_yasg==1.20.0
