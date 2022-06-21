@@ -3,31 +3,28 @@ version: '3'
 services:
   db:
     container_name: db_mysql
-    image: mysql
+    image: mysql:8
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=${DBSQL_PSWD}
-      - MYSQL_DATABASE=${DBSQL_NAME}
-    healthcheck:
-      test: "exit 0"
+      - MYSQL_USER="root"
+      - MYSQL_ROOT_PASSWORD="Lucas123456!"
+      - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
+      - MYSQL_DATABASE="django"
     volumes:
-      - volume_mysql:/var/lib/mysql
+      - /tmp/app/mysqld:/var/run/mysqld
+      - ./db:/var/lib/mysql
     ports:
       - "3306:3306"
   
   backend:
     container_name: backend_python
-    image: backend_python:fastapi
+    image: backend-python:django
     build:
       context: ./
       dockerfile: Dockerfile
     restart: always
-    command: [ "python", "manage.py", "runserver" ]
+    entrypoint: ["./wait.sh"]
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     ports:
-      - "8080:8080"
-
-volumes:
-  volume_mysql
+      - "8000:8000"
