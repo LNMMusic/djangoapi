@@ -27,6 +27,12 @@ docker ps
 docker exec -it [container] /bin/sh
 ```
 
+now we run migrations and create a superuser
+```console
+python manage.py migrate
+python manage.py createsuperuser
+```
+
 From here the backend service will be able to execute endpoints
 All the migrations to the DB are gonna be consistency based on DB ***volume***
 

@@ -8,6 +8,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${DBSQL_PSWD}
       - MYSQL_DATABASE=${DBSQL_NAME}
+    volumes:
+      - volume_mysql:/var/lib/mysql
     ports:
       - "3306:3306"
   
@@ -23,3 +25,6 @@ services:
       - db
     ports:
       - "8000:8000"
+
+volumes:
+  volume_mysql:
