@@ -1,4 +1,4 @@
-### Docker
+## Docker
 
 **Dockerfile**
 - python alpine is used due to it works with sh file based on all config of the Dockerfile
@@ -13,7 +13,7 @@
 <hr />
 <br />
 
-### Steps
+## Steps
 
 **INIT Run**
 1. Initial run
